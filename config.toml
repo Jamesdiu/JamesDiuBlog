@@ -1,5 +1,5 @@
 theme = "harbor"
-baseURL = "https://jamesdiublog.netlify.app"
+baseURL = "https://jamesdiublog.netlify.app/"
 title = "Hugo Themes"
 author = "Steve Francia"
 paginate = 3
