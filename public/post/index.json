@@ -2,7 +2,7 @@
     
         
             {
-                "ref": "/Jamesdiu/JamesDiuBlog.git/post/markdown-syntax/",
+                "ref": "/post/markdown-syntax/",
                 "title": "Markdown Syntax Guide",
                 "section": "post",
                 "date" : "2019.03.11",
@@ -12,7 +12,7 @@
     ,
         
             {
-                "ref": "/Jamesdiu/JamesDiuBlog.git/post/rich-content/",
+                "ref": "/post/rich-content/",
                 "title": "Rich Content",
                 "section": "post",
                 "date" : "2019.03.10",
@@ -22,7 +22,7 @@
     ,
         
             {
-                "ref": "/Jamesdiu/JamesDiuBlog.git/post/placeholder-text/",
+                "ref": "/post/placeholder-text/",
                 "title": "Placeholder Text",
                 "section": "post",
                 "date" : "2019.03.09",
@@ -32,7 +32,7 @@
     ,
         
             {
-                "ref": "/Jamesdiu/JamesDiuBlog.git/post/math-typesetting/",
+                "ref": "/post/math-typesetting/",
                 "title": "Math Typesetting",
                 "section": "post",
                 "date" : "2019.03.08",
@@ -42,7 +42,7 @@
     ,
         
             {
-                "ref": "/Jamesdiu/JamesDiuBlog.git/post/emoji-support/",
+                "ref": "/post/emoji-support/",
                 "title": "Emoji Support",
                 "section": "post",
                 "date" : "2019.03.05",
@@ -52,7 +52,7 @@
     ,
         
             {
-                "ref": "/Jamesdiu/JamesDiuBlog.git/post/2015-07-23-r-rmarkdown/",
+                "ref": "/post/2015-07-23-r-rmarkdown/",
                 "title": "Hello R Markdown",
                 "section": "post",
                 "date" : "2015.07.23",
