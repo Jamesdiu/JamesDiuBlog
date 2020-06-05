@@ -1,0 +1,19 @@
+---
+title: My first post with Blogdown
+author: James Diu
+date: '2020-06-05'
+slug: my-first-post-with-blogdown
+categories: []
+tags:
+  - blogdown
+backtotop: no
+toc: no
+draft: true
+---
+
+# Title
+First Blog
+<!-- toc -->
+
+## Contents
+Finally I start my blog with blogdown! 
