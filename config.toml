@@ -1,5 +1,5 @@
 theme = "harbor"
-baseURL = "https://gohugo.io"
+baseURL = "https://github.com/Jamesdiu/JamesDiuBlog.git"
 title = "Hugo Themes"
 author = "Steve Francia"
 paginate = 3
