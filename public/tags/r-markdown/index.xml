@@ -14,6 +14,14 @@
 		<atom:link href="/tags/r-markdown/" rel="self" type="application/rss+xml" />
 		
 		<item>
+			<title>My first post with Blogdown</title>
+			<link>/post/my-first-post-with-blogdown/</link>
+			<pubDate>Fri, 05 Jun 2020 00:00:00 +0000</pubDate>
+			<guid>/post/my-first-post-with-blogdown/</guid>
+			<description>Finally I start my blog with blogdown! I am not supposed to take such a long time to establish it (Some Youtubes are teaching how to build it within 15 min, which I have used far more than that due to a minor error!) In fact, the workflow in has already shown a clear way to do so. However, as a beginner to handle Hugo, Netfily, and so on, I repeated the workflow for many times until getting what I expected, which is the blog you are reading!</description>
+		</item>
+      	
+		<item>
 			<title>Markdown Syntax Guide</title>
 			<link>/post/markdown-syntax/</link>
 			<pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
