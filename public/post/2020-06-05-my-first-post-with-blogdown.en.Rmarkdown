@@ -13,4 +13,19 @@ toc: no
 
 <!-- toc -->
 
-Finally I start my blog with blogdown! I am not supposed to take such a long time to establish it (Some Youtubes are teaching how to build it within 15 min, which I have used far more than that due to a minor error!) In fact, the workflow in ![Creating Website with R Markdown](https://bookdown.org/yihui/blogdown/workflow.html) has already shown a clear way to do so. However, as a beginner to handle Hugo, Netfily, and so on, I repeated the workflow for many times until getting what I expected, which is the blog you are reading!
+Finally, I am starting my blog with blogdown! It takes a long time to establish it than I expected. Some Youtubes are now teaching how to build it within 15 min, which I have used much more than that! However, that is normal for someone like me without much experience with those Hugo, Netlify, and markdowns. To summerise all the steps I took, I would recommend reading the post from [Martin Frigaard](https://www.storybench.org/how-to-build-a-website-with-blogdown-in-r/).  This post provides very clear and informative descriptions of the same procedures I did. Indeed, it is also recommended to go through the book [Creating Website with R Markdown](https://bookdown.org/yihui/blogdown/workflow.html), written by YiHui Xie, so that to understand more about the tools and techniques used in `blogdown`. 
+
+<img src="/post/2020-06-05-my-first-post-with-blogdown.en_files/blogname.png" alt="test" width="60%"/>
+  
+
+
+
+
+
+
+
+
+
+
+
+
