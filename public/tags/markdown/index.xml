@@ -14,7 +14,24 @@
 		<atom:link href="/tags/markdown/" rel="self" type="application/rss+xml" />
 		
 		<item>
-			<title>My first post with Blogdown</title>
+			<title>Case Study: The Ethics of Using Hacked Data: Patreon’s Data Hack and Academic Data Standards</title>
+			<link>/post/case-study-the-ethics-of-using-hacked-data-patreon-s-data-hack-and-academic-data-standards/</link>
+			<pubDate>Wed, 10 Jun 2020 00:00:00 +0000</pubDate>
+			<guid>/post/case-study-the-ethics-of-using-hacked-data-patreon-s-data-hack-and-academic-data-standards/</guid>
+			<description>Recently I read an interesting article about whether we should use the hacked data. ( Here is the article The Ethics of Using Hacked Data. ) In short, the case is about a reserach team found the data they failed to obtain from the provider, along with some other private or personal data, was hacked and released to public. Then there was a dicussion between whether it is appropiate to use the hacked data.</description>
+		</item>
+      	
+		<item>
+			<title>Short Cut for Jyputer notebook</title>
+			<link>/post/short-cut-for-jyputer-notebook/</link>
+			<pubDate>Tue, 09 Jun 2020 00:00:00 +0000</pubDate>
+			<guid>/post/short-cut-for-jyputer-notebook/</guid>
+			<description>Recently I am taking a online course in Coursra about data analysis with Python and therefore I started to use Jyputer notebook. In order to separate the text and code, a new crunk is required in Jyputer notebook, like Alt+Ctrl+i in Rmarkdown. Here are some short keys which I found useful.
+   Short keys Function     Shift + Enter run the current cell, select below   Ctrl + Enter run selected cells   Alt + Enter run the current cell, insert below   Ctrl + S save and checkpoint    In command mode (press Esc to activate):</description>
+		</item>
+      	
+		<item>
+			<title>My first post with Blogdown (Small tips included!)</title>
 			<link>/post/my-first-post-with-blogdown/</link>
 			<pubDate>Fri, 05 Jun 2020 00:00:00 +0000</pubDate>
 			<guid>/post/my-first-post-with-blogdown/</guid>

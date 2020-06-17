@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-<title>My first post with Blogdown</title>
+<title>My first post with Blogdown (Small tips included!)</title>
 
 
   
@@ -60,7 +60,7 @@
       <div class="container">
         <div class="post-heading">
           
-            <h1>My first post with Blogdown</h1>
+            <h1>My first post with Blogdown (Small tips included!)</h1>
           
           
             <span class="meta-post">
@@ -80,8 +80,20 @@
     <article class="article" class="blog-post">
       
     <!-- raw HTML omitted -->
-<p>Finally, I am starting my blog with blogdown! It takes a long time to establish it than I expected. Some Youtubes are now teaching how to build it within 15 min, which I have used much more than that! However, that is normal for someone like me without much experience with those Hugo, Netlify, and markdowns. To summerise all the steps I took, I would recommend reading the post from <a href="https://www.storybench.org/how-to-build-a-website-with-blogdown-in-r/">Martin Frigaard</a>.  This post provides very clear and informative descriptions of the same procedures I did. Indeed, it is also recommended to go through the book <a href="https://bookdown.org/yihui/blogdown/workflow.html">Creating Website with R Markdown</a>, written by YiHui Xie, so that to understand more about the tools and techniques used in <code>blogdown</code>.</p>
-<!-- raw HTML omitted -->
+<p>Finally, I am starting my blog with <code>blogdown</code>! It takes a long time to establish it than I expected. Some Youtubes are now teaching how to build it within 15 min, which I have used much more than that! However, that is normal for someone like me without much experience with those Hugo, Netlify, and markdowns. To summerise all the steps I took, I would recommend reading the post from <a href="https://www.storybench.org/how-to-build-a-website-with-blogdown-in-r/">Martin Frigaard</a>.  This post provides very clear and informative descriptions of the same procedures I did. Indeed, it is also recommended to go through the book <a href="https://bookdown.org/yihui/blogdown/workflow.html">Creating Website with R Markdown</a>, written by YiHui Xie, so that to understand more about the tools and techniques used in <code>blogdown</code>.</p>
+<p>Meanwhile, I would like to add some tips that I noticed. I hope it may help with other beginners;</p>
+<ol>
+<li>
+<p>Pay attention to <strong>HUGO VERSION</strong> required of the template used. When you are connecting your blog to Netlify, you have to provide the &ldquo;Environment variables&rdquo; such that to ensure the version is update enough to run your template.</p>
+</li>
+<li>
+<p>Remember to change <strong>baseURL</strong> into the website address on netlify. Otherwise, it would not be able to obtain all data from git, for example the template design used.</p>
+</li>
+<li>
+<p>Also for <strong>baseURL</strong>, make sure &quot; / &quot; is NOT missing at the end.</p>
+</li>
+</ol>
+<p>Above are the issues locked me down and took me few hours to find out the reason. Hope these would help the next one to go smoothly!</p>
 
 
 

@@ -2,11 +2,31 @@
     
         
             {
+                "ref": "/post/case-study-the-ethics-of-using-hacked-data-patreon-s-data-hack-and-academic-data-standards/",
+                "title": "Case Study: The Ethics of Using Hacked Data: Patreon’s Data Hack and Academic Data Standards",
+                "section": "post",
+                "date" : "2020.06.10",
+                "body": "Recently I read an interesting article about whether we should use the hacked data. ( Here is the article The Ethics of Using Hacked Data. ) In short, the case is about a reserach team found the data they failed to obtain from the provider, along with some other private or personal data, was hacked and released to public. Then there was a dicussion between whether it is appropiate to use the hacked data. Ethical issue is the major concern. Although it might require more workload to obtain the data in another source, they decided not using the hacked data.\nEveryone who ever tried to collect data would understand the diffculties and pain. It would always be joyful to have these time consuming tasks done by someone else.\n"
+            }
+        
+    ,
+        
+            {
+                "ref": "/post/short-cut-for-jyputer-notebook/",
+                "title": "Short Cut for Jyputer notebook",
+                "section": "post",
+                "date" : "2020.06.09",
+                "body": "Recently I am taking a online course in Coursra about data analysis with Python and therefore I started to use Jyputer notebook. In order to separate the text and code, a new crunk is required in Jyputer notebook, like Alt+Ctrl+i in Rmarkdown. Here are some short keys which I found useful.\n   Short keys Function     Shift + Enter run the current cell, select below   Ctrl + Enter run selected cells   Alt + Enter run the current cell, insert below   Ctrl + S save and checkpoint    In command mode (press Esc to activate):\n   Short keys Function     A insert cell above   B insert cell below   X cut selected cells   C copy selected cells   V paste cells below   Shift + V paste cells above   D, D (press the key twice) delete selected cells   Z undo cell deletion   S Save and Checkpoint   Y change the cell type to Code   M change the cell type to Markdown    "
+            }
+        
+    ,
+        
+            {
                 "ref": "/post/my-first-post-with-blogdown/",
-                "title": "My first post with Blogdown",
+                "title": "My first post with Blogdown (Small tips included!)",
                 "section": "post",
                 "date" : "2020.06.05",
-                "body": "Finally, I am starting my blog with blogdown! It takes a long time to establish it than I expected. Some Youtubes are now teaching how to build it within 15 min, which I have used much more than that! However, that is normal for someone like me without much experience with those Hugo, Netlify, and markdowns. To summerise all the steps I took, I would recommend reading the post from Martin Frigaard. This post provides very clear and informative descriptions of the same procedures I did. Indeed, it is also recommended to go through the book Creating Website with R Markdown, written by YiHui Xie, so that to understand more about the tools and techniques used in blogdown.\n"
+                "body": "Finally, I am starting my blog with blogdown! It takes a long time to establish it than I expected. Some Youtubes are now teaching how to build it within 15 min, which I have used much more than that! However, that is normal for someone like me without much experience with those Hugo, Netlify, and markdowns. To summerise all the steps I took, I would recommend reading the post from Martin Frigaard. This post provides very clear and informative descriptions of the same procedures I did. Indeed, it is also recommended to go through the book Creating Website with R Markdown, written by YiHui Xie, so that to understand more about the tools and techniques used in blogdown.\nMeanwhile, I would like to add some tips that I noticed. I hope it may help with other beginners;\n  Pay attention to HUGO VERSION required of the template used. When you are connecting your blog to Netlify, you have to provide the \u0026ldquo;Environment variables\u0026rdquo; such that to ensure the version is update enough to run your template.\n  Remember to change baseURL into the website address on netlify. Otherwise, it would not be able to obtain all data from git, for example the template design used.\n  Also for baseURL, make sure \u0026quot; / \u0026quot; is NOT missing at the end.\n  Above are the issues locked me down and took me few hours to find out the reason. Hope these would help the next one to go smoothly!\n"
             }
         
     ,
