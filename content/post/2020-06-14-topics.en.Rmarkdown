@@ -1,0 +1,21 @@
+---
+title: Topics
+author: Jamesdiu
+date: '2020-06-14'
+slug: topics
+categories: []
+tags: []
+backtotop: no
+toc: no
+Draft = True
+---
+
+P-hacking / Dredging
+
+- Remedies:
+1. Bonfereoni correction: reduce p-value when the number of t-test increases
+2. Hold-out sets: cross fold validation
+3. Investigation pre-registration: peer evaluation by professionals
+<!-- toc -->
+
+## Contents

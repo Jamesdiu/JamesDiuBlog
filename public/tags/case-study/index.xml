@@ -1,0 +1,93 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>case study on Hugo Themes</title>
+		<link>/tags/case-study/</link>
+		<description>Recent content in case study on Hugo Themes</description>
+		<generator>Hugo -- gohugo.io</generator>
+		
+  		<language>en</language>
+		
+		<managingEditor>Page(/tags/case-study) (hugo author)</managingEditor>
+    	
+  		<lastBuildDate>Wed, 10 Jun 2020 00:00:00 +0000</lastBuildDate>
+		
+		<atom:link href="/tags/case-study/" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>Case Study: The Ethics of Using Hacked Data: Patreon’s Data Hack and Academic Data Standards</title>
+			<link>/post/case-study-the-ethics-of-using-hacked-data-patreon-s-data-hack-and-academic-data-standards/</link>
+			<pubDate>Wed, 10 Jun 2020 00:00:00 +0000</pubDate>
+			<guid>/post/case-study-the-ethics-of-using-hacked-data-patreon-s-data-hack-and-academic-data-standards/</guid>
+			<description>Recently I read an interesting article about whether we should use the hacked data. ( Here is the article The Ethics of Using Hacked Data. ) In short, the case is about a reserach team found the data they failed to obtain from the provider, along with some other private or personal data, was hacked and released to public. Then there was a dicussion between whether it is appropiate to use the hacked data.</description>
+		</item>
+      	
+		<item>
+			<title>Short Cut for Jyputer notebook</title>
+			<link>/post/short-cut-for-jyputer-notebook/</link>
+			<pubDate>Tue, 09 Jun 2020 00:00:00 +0000</pubDate>
+			<guid>/post/short-cut-for-jyputer-notebook/</guid>
+			<description>Recently I am taking a online course in Coursra about data analysis with Python and therefore I started to use Jyputer notebook. In order to separate the text and code, a new crunk is required in Jyputer notebook, like Alt+Ctrl+i in Rmarkdown. Here are some short keys which I found useful.
+   Short keys Function     Shift + Enter run the current cell, select below   Ctrl + Enter run selected cells   Alt + Enter run the current cell, insert below   Ctrl + S save and checkpoint    In command mode (press Esc to activate):</description>
+		</item>
+      	
+		<item>
+			<title>My first post with Blogdown (Small tips included!)</title>
+			<link>/post/my-first-post-with-blogdown/</link>
+			<pubDate>Fri, 05 Jun 2020 00:00:00 +0000</pubDate>
+			<guid>/post/my-first-post-with-blogdown/</guid>
+			<description>Finally, I am starting my blog with blogdown! It takes a long time to establish it than I expected. Some Youtubes are now teaching how to build it within 15 min, which I have used much more than that! However, that is normal for someone like me without much experience with those Hugo, Netlify, and markdowns. To summerise all the steps I took, I would recommend reading the post from Martin Frigaard.</description>
+		</item>
+      	
+		<item>
+			<title>Markdown Syntax Guide</title>
+			<link>/post/markdown-syntax/</link>
+			<pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+			<guid>/post/markdown-syntax/</guid>
+			<description>&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;</description>
+		</item>
+      	
+		<item>
+			<title>Rich Content</title>
+			<link>/post/rich-content/</link>
+			<pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
+			<guid>/post/rich-content/</guid>
+			<description>&lt;p&gt;Hugo ships with several &lt;a href=&#34;https://gohugo.io/content-management/shortcodes/#use-hugo-s-built-in-shortcodes&#34;&gt;Built-in Shortcodes&lt;/a&gt; for rich content, along with a &lt;a href=&#34;https://gohugo.io/about/hugo-and-gdpr/&#34;&gt;Privacy Config&lt;/a&gt; and a set of Simple Shortcodes that enable static and no-JS versions of various social media embeds.&lt;/p&gt;</description>
+		</item>
+      	
+		<item>
+			<title>Placeholder Text</title>
+			<link>/post/placeholder-text/</link>
+			<pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
+			<guid>/post/placeholder-text/</guid>
+			<description>&lt;p&gt;Lorem est tota propiore conpellat pectoribus de
+pectora summo.&lt;/p&gt;</description>
+		</item>
+      	
+		<item>
+			<title>Math Typesetting</title>
+			<link>/post/math-typesetting/</link>
+			<pubDate>Fri, 08 Mar 2019 00:00:00 +0000</pubDate>
+			<guid>/post/math-typesetting/</guid>
+			<description>&lt;p&gt;Mathematical notation in a Hugo project can be enabled by using third party JavaScript libraries.&lt;/p&gt;</description>
+		</item>
+      	
+		<item>
+			<title>Emoji Support</title>
+			<link>/post/emoji-support/</link>
+			<pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
+			<guid>/post/emoji-support/</guid>
+			<description>&lt;p&gt;Emoji can be enabled in a Hugo project in a number of ways.&lt;/p&gt;</description>
+		</item>
+      	
+		<item>
+			<title>Hello R Markdown</title>
+			<link>/post/2015-07-23-r-rmarkdown/</link>
+			<pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
+			<guid>/post/2015-07-23-r-rmarkdown/</guid>
+			<description>R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
+You can embed an R code chunk like this:
+summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
+		</item>
+      	
+	</channel>
+</rss>
