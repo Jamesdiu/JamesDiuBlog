@@ -1,7 +1,7 @@
 theme = "harbor"
 baseURL = "https://jamesdiublog.netlify.app/"
-title = "Hugo Themes"
-author = "Steve Francia"
+title = "James Diu's Blog"
+author = "James Diu"
 paginate = 3
 languageCode = "en"
 DefaultContentLanguage = "en"
