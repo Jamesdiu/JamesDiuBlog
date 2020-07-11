@@ -16,6 +16,14 @@ P-hacking / Dredging
 1. Bonfereoni correction: reduce p-value when the number of t-test increases
 2. Hold-out sets: cross fold validation
 3. Investigation pre-registration: peer evaluation by professionals
+
+4. K-means
+5. Regression
+  1. F test -> ANOVA
+  2. AIC (Akaike Infomration criterion)
+6. Decision tree
+
+
 <!-- toc -->
 
 ## Contents
