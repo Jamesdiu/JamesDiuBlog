@@ -244,7 +244,7 @@ df <- df %>% mutate(playingtime = ifelse(maxplaytime >= 120, "Extreme",
                                                        ifelse(is.na(maxplaytime),NA,"Short")))),
                     playingtime = factor(playingtime, levels =c("Short","Normal","Long","Extreme")))
 ```
-```{r, echo=FALSE}
+```{r, echo=FALSE, warning=FALSE}
 time_count <- df %>% group_by(playingtime) %>% summarise(n=n())
 ggplot(df) +
   geom_bar(aes(x=playingtime, fill=playingtime), stat = "count") +

@@ -1,0 +1,8 @@
+"0","corrplot(cor("
+"0","  df %>% select(BGG_rating = bayes_average_rating,"
+"0","                avg_weight = average_weight,"
+"0","                yearpublished, minage,"
+"0","                minplayers, maxplayers, minplaytime, maxplaytime),"
+"0","  use = ""pairwise.complete.obs"" # igrone missing pairs of data"
+"0","  ),"
+"0","  method = ""circle"", type =""lower"")"
