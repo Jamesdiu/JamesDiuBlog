@@ -63,11 +63,13 @@ df <- df %>% mutate(maxplaytime = ifelse(maxplaytime<minplaytime, minplaytime, m
                     minplaytime = ifelse(minplaytime<playingtime, minplaytime, playingtime))
 ```
 
-In this dataset, we have total 95777 board games, including the base games(80105) and its expansion(15672). The information can also be separarted into 2 groups: games features and  responses on BGG. Since some information is useless or duplicated, below are the useful columns: 
+In this dataset, we have total 95,777 board games, including the base games(80,105) and its expansion(15,672). The information can also be separarted into 2 groups: games features and  responses on BGG. Since some information is useless or duplicated, below are the useful columns: 
+
 Features: `type`, `yearpublished`, `minplayers`, `maxplayers`, `minplaytime`, `maxplaytime`, `minage`, `types`, `categories`, `mechanics`, `desginers` 
+
 Responses: `users_rated`, `bayes_average_rating`, `total_owners`, `total_trader`, `total_wanters`, `total_wisher`, `total_comments`, `average_weight`
 
-One of the most important data is `bayes_average_rating`, which is only avaliable for the games with at least 30 users rating. It is used instead of the average player rating in order to exclude those games which few ratings, so that to prevent the bias from small smaple size. After filtering out those data without 30 users rating, we still have 15026 games and 4714 expansion and we will place our foucs on them.
+One of the most important data is `bayes_average_rating`, which is only avaliable for the games with at least 30 users rating. It is used instead of the average player rating in order to exclude those games which few ratings, so that to prevent the bias from small smaple size. After filtering out those data without 30 users rating, we still have 15,026 games and 4,714 expansion and we will place our foucs on them.
 ```{r}
 df %>% filter(users_rated>=30) %>% group_by(type) %>% summarise(n=n())
 df <- df %>% filter(users_rated>=30)
@@ -103,7 +105,7 @@ Since some of the games in our list do not have a clear publish date. Therefore 
 sort(df$yearpublished)[round(nrow(df)/10)]
 ```
 
-From below plot, we can see that the average BGG rating raises slightly over the years. However it is hard to conclude whether the games puhlished are getting better or the baseline of users rating is going upwards. One interesting things to notice is the ratings of game are spreading futher to the higher rating, and so does the best rating. This would be the result of the increase of games published.
+From below plot, the average BGG rating raises slightly over the years. However it is hard to conclude whether the games puhlished are getting better or the baseline of users rating is going upwards. One interesting things to notice is the ratings of game are spreading futher to the higher rating, and so does the best rating. This would be the result of the increase of games published.
 ```{r, echo=FALSE}
 avg_BGG_rate <- mean(df$bayes_average_rating)
 annual_rating <-
@@ -144,7 +146,7 @@ corrplot.mixed(cor(df %>% filter(yearpublished >=1985) %>%
 
 ### Minimum age
 
-We can know that minimum age is positivly correlated to weight and rating. It is reasonable because most of the BGG users are not children and I have sure them are not that interested into those games for children. This fact also implies the evaluation to children's games may be invalid. Besides, we can notice that the minimum age mainly fall into 5 ages: 8,10,12-14. WE can notice that the distrbution is very inbalance. In general the purpose of minimum age is an index for the complexity and content and the judgement is highly depends on the publisher (noted that games specially for 18+ is rare), therefore I would also prefer to transfer minimum age into 5 groups: <6, 6-8, 9-11, 12-14, 15+
+We can know that minimum age is positivly correlated to weight and rating from the correlation chart before. It is reasonable because most of the BGG users are not children and I have sure them are not that interested into those games for children. This fact also implies the evaluation to children's games may be invalid. Besides, we can notice that the minimum age mainly fall into 5 ages: 8,10,12-14. WE can notice that the distrbution is very inbalance. In general the purpose of minimum age is an index for the complexity and content and the judgement is highly depends on the publisher (noted that games specially for 18+ is rare), therefore I would also prefer to transfer minimum age into 5 groups: <6, 6-8, 9-11, 12-14, 15+
 
 ```{r}
 df <- df %>% mutate(age_group = ifelse(minage>14, "15+",
@@ -213,12 +215,12 @@ ggplot(df %>% select(maxplayers, minplayers) %>%
 ```
 
 ### Playing time
-We notice that the playing time can be simplified into 4 groups:
+The playing time can be simplified into 4 groups:
 -1. short: 30 min or less
 -2. meidum: 30 - 60 min
 -3. long: 60 - 90 min
 -4. extreme: 120 min or longer
-In fact, from my experience the playing time can be varied a lot and normally longer than its stated. However, it still provides a segment of time length for the games.
+From my experience, the playing time can be varied a lot and normally longer than its stated. However, it still provides a segment of time length for the games.
 Similiar to minimum age, I would prefer to use above groups as categorical value for the playing time instead of numeric value.
 
 ```{r, echo=FALSE}
