@@ -3,6 +3,61 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/categories/boardgame/</loc>
+    <lastmod>2020-07-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/</loc>
+    <lastmod>2020-07-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/how-to-select-a-satisfying-board-game-part-2/</loc>
+    <lastmod>2020-07-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2020-07-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/r/</loc>
+    <lastmod>2020-07-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/test-rmarkdown/</loc>
+    <lastmod>2020-07-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/test-rmd/</loc>
+    <lastmod>2020-07-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/how-to-select-a-satisfying-board-game/</loc>
+    <lastmod>2020-07-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/course-wrap-up-introduction-to-data-science-in-python/</loc>
+    <lastmod>2020-06-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/python/</loc>
+    <lastmod>2020-06-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/topics/</loc>
+    <lastmod>2020-06-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tags/case-study/</loc>
     <lastmod>2020-06-10T00:00:00+00:00</lastmod>
   </url>
@@ -13,17 +68,7 @@
   </url>
   
   <url>
-    <loc>/categories/</loc>
-    <lastmod>2020-06-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/categories/ethics/</loc>
-    <lastmod>2020-06-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/</loc>
     <lastmod>2020-06-10T00:00:00+00:00</lastmod>
   </url>
   
@@ -144,11 +189,6 @@
   
   <url>
     <loc>/tags/plot/</loc>
-    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/r/</loc>
     <lastmod>2015-07-23T21:13:14-05:00</lastmod>
   </url>
   

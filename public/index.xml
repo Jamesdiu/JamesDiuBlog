@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
-		<title>Hugo Themes</title>
+		<title>James Diu&#39;s Blog</title>
 		<link>/</link>
-		<description>Recent content on Hugo Themes</description>
+		<description>Recent content on James Diu&#39;s Blog</description>
 		<generator>Hugo -- gohugo.io</generator>
 		
   		<language>en</language>
@@ -14,11 +14,69 @@
 		<atom:link href="/" rel="self" type="application/rss+xml" />
 		
 		<item>
+			<title>How to select a satisfying board game? Part 2</title>
+			<link>/post/how-to-select-a-satisfying-board-game-part-2/</link>
+			<pubDate>Sat, 11 Jul 2020 00:00:00 +0000</pubDate>
+			<guid>/post/how-to-select-a-satisfying-board-game-part-2/</guid>
+			<description>Title Contents Testing Testing</description>
+		</item>
+      	
+		<item>
+			<title>Test Rmarkdown</title>
+			<link>/post/test-rmarkdown/</link>
+			<pubDate>Sat, 11 Jul 2020 00:00:00 +0000</pubDate>
+			<guid>/post/test-rmarkdown/</guid>
+			<description>Title Contents Test Rmarkdown</description>
+		</item>
+      	
+		<item>
+			<title>Test Rmd</title>
+			<link>/post/test-rmd/</link>
+			<pubDate>Sat, 11 Jul 2020 00:00:00 +0000</pubDate>
+			<guid>/post/test-rmd/</guid>
+			<description> no  Title Contents test Rmd
+  </description>
+		</item>
+      	
+		<item>
+			<title>How to select a satisfying board game? - Part I</title>
+			<link>/post/how-to-select-a-satisfying-board-game/</link>
+			<pubDate>Fri, 10 Jul 2020 00:00:00 +0000</pubDate>
+			<guid>/post/how-to-select-a-satisfying-board-game/</guid>
+			<description>Being a boardgame enthusiasts, I always introduce board games to my friends. Some of them might be another enthusiasts, while some might have an idea that board game is equivalent to chess. Most of time I use my instinct and my understanding on the taste of my friends to decide which game would be provide the greatest fun for us. However, it can be very biased due to my personal preference.</description>
+		</item>
+      	
+		<item>
+			<title>Course Wrap Up: Introduction to Data Science in Python</title>
+			<link>/post/course-wrap-up-introduction-to-data-science-in-python/</link>
+			<pubDate>Thu, 18 Jun 2020 00:00:00 +0000</pubDate>
+			<guid>/post/course-wrap-up-introduction-to-data-science-in-python/</guid>
+			<description>After finishing my first python course in Coursera, it&amp;rsquo;s time to do a little summary.</description>
+		</item>
+      	
+		<item>
+			<title>Topics</title>
+			<link>/post/topics/</link>
+			<pubDate>Sun, 14 Jun 2020 00:00:00 +0000</pubDate>
+			<guid>/post/topics/</guid>
+			<description>P-hacking / Dredging
+ Remedies:    Bonfereoni correction: reduce p-value when the number of t-test increases
+  Hold-out sets: cross fold validation
+  Investigation pre-registration: peer evaluation by professionals
+  K-means
+  Regression
+  F test -&amp;gt; ANOVA
+  AIC (Akaike Infomration criterion)
+  Decision tree
+  Contents </description>
+		</item>
+      	
+		<item>
 			<title>Case Study: The Ethics of Using Hacked Data: Patreon’s Data Hack and Academic Data Standards</title>
 			<link>/post/case-study-the-ethics-of-using-hacked-data-patreon-s-data-hack-and-academic-data-standards/</link>
 			<pubDate>Wed, 10 Jun 2020 00:00:00 +0000</pubDate>
 			<guid>/post/case-study-the-ethics-of-using-hacked-data-patreon-s-data-hack-and-academic-data-standards/</guid>
-			<description>Recently I read an interesting article about whether we should use the hacked data. ( Here is the article The Ethics of Using Hacked Data. ) In short, the case is about a reserach team found the data they failed to obtain from the provider, along with some other private or personal data, was hacked and released to public. Then there was a dicussion between whether it is appropiate to use the hacked data.</description>
+			<description>During the course I have read an interesting article about whether we should use the hacked data. ( Here is the article The Ethics of Using Hacked Data. ) In short, the case is about a reserach team found the data they failed to obtain from the provider, along with some other private or personal data, was hacked and released to public. Then there was a dicussion between whether it is appropiate to use the hacked data.</description>
 		</item>
       	
 		<item>
@@ -44,49 +102,6 @@
 			<pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
 			<guid>/post/markdown-syntax/</guid>
 			<description>&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;</description>
-		</item>
-      	
-		<item>
-			<title>Rich Content</title>
-			<link>/post/rich-content/</link>
-			<pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
-			<guid>/post/rich-content/</guid>
-			<description>&lt;p&gt;Hugo ships with several &lt;a href=&#34;https://gohugo.io/content-management/shortcodes/#use-hugo-s-built-in-shortcodes&#34;&gt;Built-in Shortcodes&lt;/a&gt; for rich content, along with a &lt;a href=&#34;https://gohugo.io/about/hugo-and-gdpr/&#34;&gt;Privacy Config&lt;/a&gt; and a set of Simple Shortcodes that enable static and no-JS versions of various social media embeds.&lt;/p&gt;</description>
-		</item>
-      	
-		<item>
-			<title>Placeholder Text</title>
-			<link>/post/placeholder-text/</link>
-			<pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
-			<guid>/post/placeholder-text/</guid>
-			<description>&lt;p&gt;Lorem est tota propiore conpellat pectoribus de
-pectora summo.&lt;/p&gt;</description>
-		</item>
-      	
-		<item>
-			<title>Math Typesetting</title>
-			<link>/post/math-typesetting/</link>
-			<pubDate>Fri, 08 Mar 2019 00:00:00 +0000</pubDate>
-			<guid>/post/math-typesetting/</guid>
-			<description>&lt;p&gt;Mathematical notation in a Hugo project can be enabled by using third party JavaScript libraries.&lt;/p&gt;</description>
-		</item>
-      	
-		<item>
-			<title>Emoji Support</title>
-			<link>/post/emoji-support/</link>
-			<pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
-			<guid>/post/emoji-support/</guid>
-			<description>&lt;p&gt;Emoji can be enabled in a Hugo project in a number of ways.&lt;/p&gt;</description>
-		</item>
-      	
-		<item>
-			<title>Hello R Markdown</title>
-			<link>/post/2015-07-23-r-rmarkdown/</link>
-			<pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
-			<guid>/post/2015-07-23-r-rmarkdown/</guid>
-			<description>R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
-You can embed an R code chunk like this:
-summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
 		</item>
       	
 	</channel>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+<title>How to select a satisfying board game? - Part I</title>
+
+
+  
+
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="alternate" type="application/rss+xml" href="/index.xml" title="James Diu&#39;s Blog">
+
+<link id="dark-mode-theme" rel="stylesheet" href="/css/dark.css" />
+<link rel="stylesheet" href="/fontawesome/css/all.min.css" />
+
+<script src="/js/bundle.js"></script>
+<script src="/js/instantpage.js" type="module" defer></script>
+<meta name="generator" content="Hugo 0.70.0" />
+  </head>
+  <body>
+    
+  
+
+
+
+
+  <header>
+    <nav class="navbar">
+  <div class="nav">
+    
+      <a href="/" class="nav-logo">
+      <img src="/images/icon.png"
+           width="50"
+           height="50"
+           alt="Logo">
+      </a>
+    
+
+    <ul class="nav-links">
+      
+        
+          <li><a href="/about/" name="About"><i class="fas fa-user fa-lg"></i></a></li>
+        
+      
+        
+          <li><a href="/tags" name="Tags"><i class="fas fa-tag fa-lg"></i></a></li>
+        
+      
+        
+          <li><a href="/search" name="Search"><i class="fas fa-search fa-lg"></i></a></li>
+        
+      
+    </ul>
+  </div>
+</nav>
+
+    <div class="intro-header">
+      <div class="container">
+        <div class="post-heading">
+          
+            <h1>How to select a satisfying board game? - Part I</h1>
+          
+          
+            <span class="meta-post">
+  <i class="fa fa-calendar-alt"></i>&nbsp;Jul 10, 2020
+  
+    &nbsp;&nbsp;&nbsp;<i class="fa fa-folder-open"></i>&nbsp;
+    
+      <a href="//categories/boardgame/">boardgame</a>&nbsp;
+    
+      <a href="//categories/r/">R</a>&nbsp;
+    
+  
+</span>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+  <div class="container" role="main">
+    <article class="article" class="blog-post">
+      
+    <!-- raw HTML omitted -->
+<p>Being a boardgame enthusiasts, I always introduce board games to my friends. Some of them might be another enthusiasts, while some might have an idea that board game is equivalent to chess. Most of time I use my instinct and my understanding on the taste of my friends to decide which game would be provide the greatest fun for us. However, it can be very biased due to my personal preference. On the other hand, I love to collect <em>different</em> board games. I hope my collection can be diverse enough to serve all kind of my friends background and preference. So how should I choose a game to meet general preference? And which game should I select, such that it will enrich my collection and make sure it could be fun? (It is quite upset when you find out a new game is boring&hellip;) Perhaps learning more about the general preference statistically is not a bad idea.</p>
+<h2 id="data-description">Data description</h2>
+<p>Regarding the data of board games, <a href="https://boardgamegeek.com/">BoardGameGeek(BGG)</a> is undoubtely the biggest source. However, I am not going to pull the data directly. Instead, I will use the data from an interesting <a href="https://dvatvani.github.io/BGG-Analysis-Part-1.html">post</a> about the trend and rating bias on BGG in 2018, which also come from BGG. Although it is not up-to-date data, I think it can still give us some insights and suggestions.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">games_Jan2018 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">read_csv</span>(<span style="color:#e6db74">&#34;data/games_Jan2018.csv&#34;</span>)
+df <span style="color:#f92672">&lt;-</span> games_Jan2018
+</code></pre></div><p>In this dataset, we have total 95777 board games, including the base games(80105) and its expansion(15672). The information can also be separarted into 2 groups: games features and  responses on BGG. Since some information is useless or duplicated, below are the useful columns:
+Features: <code>type</code>, <code>yearpublished</code>, <code>minplayers</code>, <code>maxplayers</code>, <code>minplaytime</code>, <code>maxplaytime</code>, <code>minage</code>, <code>types</code>, <code>categories</code>, <code>mechanics</code>, <code>desginers</code>
+Responses: <code>users_rated</code>, <code>bayes_average_rating</code>, <code>total_owners</code>, <code>total_trader</code>, <code>total_wanters</code>, <code>total_wisher</code>, <code>total_comments</code>, <code>average_weight</code></p>
+<p>One of the most important data is <code>bayes_average_rating</code>, which is only avaliable for the games with at least 30 users rating. It is used instead of the average player rating in order to exclude those games which few ratings, so that to prevent the bias from small smaple size. After filtering out those data without 30 users rating, we still have 15026 games and 4714 expansion and we will place our foucs on them.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">df <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">filter</span>(users_rated<span style="color:#f92672">&gt;=</span><span style="color:#ae81ff">30</span>) <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">group_by</span>(type) <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">summarise</span>(n<span style="color:#f92672">=</span><span style="color:#a6e22e">n</span>())
+</code></pre></div><pre><code>## # A tibble: 2 x 2
+##    type     n
+##   &lt;dbl&gt; &lt;int&gt;
+## 1     0 15026
+## 2     1  4714
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">df <span style="color:#f92672">&lt;-</span> df <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">filter</span>(users_rated<span style="color:#f92672">&gt;=</span><span style="color:#ae81ff">30</span>)
+</code></pre></div><p>Now we have a rough idea about what cards are on our hand. Let&rsquo;s find out so further information from them. At the beginning, we will start with the numerical data.</p>
+<h3 id="correlation">Correlation</h3>
+<p>Below is the correlation table among different numerical features. We can see the BGG rating has a positive correlation with the average weight and minimum age, and also slightly positive correlated to the year of publish. Meanwhile, we can also notice that the rating is somehow independent on the number of players and the duration of playing time, but both features show some dependence on both features. Therefore we will go through all these features one by one.
+<!-- raw HTML omitted --></p>
+<h3 id="weight">Weight</h3>
+<p>It obvious to notice that the weight of games has positive skewness, with the mode at 2. Meanwhile, we should be reminded that this is a score provided by the users, which means this is a relative value to other games. Due to the same reason, perharps we should consider to use other fixed feature to replace this subjective features.
+<!-- raw HTML omitted --></p>
+<h3 id="year-of-publish">Year of publish</h3>
+<p>Since some of the games in our list do not have a clear publish date. Therefore we will start with the games published on or after 1985, which has already cover 90% of the games. For the rest of the data I will set them to NA as irrelevant due to small sample size.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">sort</span>(df<span style="color:#f92672">$</span>yearpublished)<span style="color:#a6e22e">[round</span>(<span style="color:#a6e22e">nrow</span>(df)<span style="color:#f92672">/</span><span style="color:#ae81ff">10</span>)]
+</code></pre></div><pre><code>## [1] 1985
+</code></pre><p>From below plot, we can see that the average BGG rating raises slightly over the years. However it is hard to conclude whether the games puhlished are getting better or the baseline of users rating is going upwards. One interesting things to notice is the ratings of game are spreading futher to the higher rating, and so does the best rating. This would be the result of the increase of games published.
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted --></p>
+<h3 id="minimum-age">Minimum age</h3>
+<p>We can know that minimum age is positivly correlated to weight and rating. It is reasonable because most of the BGG users are not children and I have sure them are not that interested into those games for children. This fact also implies the evaluation to children&rsquo;s games may be invalid. Besides, we can notice that the minimum age mainly fall into 5 ages: 8,10,12-14. WE can notice that the distrbution is very inbalance. In general the purpose of minimum age is an index for the complexity and content and the judgement is highly depends on the publisher (noted that games specially for 18+ is rare), therefore I would also prefer to transfer minimum age into 5 groups: &lt;6, 6-8, 9-11, 12-14, 15+</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">df <span style="color:#f92672">&lt;-</span> df <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">mutate</span>(age_group <span style="color:#f92672">=</span> <span style="color:#a6e22e">ifelse</span>(minage<span style="color:#f92672">&gt;</span><span style="color:#ae81ff">14</span>, <span style="color:#e6db74">&#34;15+&#34;</span>,
+                                        <span style="color:#a6e22e">ifelse</span>(minage<span style="color:#f92672">&gt;</span><span style="color:#ae81ff">11</span>, <span style="color:#e6db74">&#34;12-14&#34;</span>,
+                                               <span style="color:#a6e22e">ifelse</span>(minage<span style="color:#f92672">&gt;</span><span style="color:#ae81ff">8</span>, <span style="color:#e6db74">&#34;9-11&#34;</span>,
+                                                      <span style="color:#a6e22e">ifelse</span>(minage<span style="color:#f92672">&gt;</span><span style="color:#ae81ff">5</span>, <span style="color:#e6db74">&#34;6-8&#34;</span>,<span style="color:#e6db74">&#34;&lt;6&#34;</span>)))),
+                     age_group <span style="color:#f92672">=</span> <span style="color:#a6e22e">factor</span>(age_group, levels <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;&lt;6&#34;</span>, <span style="color:#e6db74">&#34;6-8&#34;</span>, <span style="color:#e6db74">&#34;9-11&#34;</span>,<span style="color:#e6db74">&#34;12-14&#34;</span>,<span style="color:#e6db74">&#34;15+&#34;</span>)))
+</code></pre></div><p><!-- raw HTML omitted --></p>
+<p>According to the plot, it is easy to see that &lt;6 &amp; 15+ has lower rating then other. It reviews that the correlation between minimum age and rating may not be linear.</p>
+<p><!-- raw HTML omitted --></p>
+<h3 id="number-of-players">Number of players</h3>
+<p>Most of the game can affort 2-4 players without any surprise.</p>
+<pre><code>## Scale for 'colour' is already present. Adding another scale for 'colour',
+## which will replace the existing scale.
+</code></pre><p><!-- raw HTML omitted --></p>
+<h3 id="playing-time">Playing time</h3>
+<p>We notice that the playing time can be simplified into 4 groups:
+-1. short: 30 min or less
+-2. meidum: 30 - 60 min
+-3. long: 60 - 90 min
+-4. extreme: 120 min or longer
+In fact, from my experience the playing time can be varied a lot and normally longer than its stated. However, it still provides a segment of time length for the games.
+Similiar to minimum age, I would prefer to use above groups as categorical value for the playing time instead of numeric value.</p>
+<p><!-- raw HTML omitted --></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#75715e"># Assign new group</span>
+df <span style="color:#f92672">&lt;-</span> df <span style="color:#f92672">%&gt;%</span> <span style="color:#a6e22e">mutate</span>(playingtime <span style="color:#f92672">=</span> <span style="color:#a6e22e">ifelse</span>(maxplaytime <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">120</span>, <span style="color:#e6db74">&#34;Extreme&#34;</span>,
+                                         <span style="color:#a6e22e">ifelse</span>(maxplaytime <span style="color:#f92672">&gt;=</span><span style="color:#ae81ff">90</span>, <span style="color:#e6db74">&#34;Long&#34;</span>,
+                                                <span style="color:#a6e22e">ifelse</span>(maxplaytime <span style="color:#f92672">&gt;=</span><span style="color:#ae81ff">60</span>, <span style="color:#e6db74">&#34;Normal&#34;</span>,
+                                                       <span style="color:#a6e22e">ifelse</span>(<span style="color:#a6e22e">is.na</span>(maxplaytime),<span style="color:#66d9ef">NA</span>,<span style="color:#e6db74">&#34;Short&#34;</span>)))),
+                    playingtime <span style="color:#f92672">=</span> <span style="color:#a6e22e">factor</span>(playingtime, levels <span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;Short&#34;</span>,<span style="color:#e6db74">&#34;Normal&#34;</span>,<span style="color:#e6db74">&#34;Long&#34;</span>,<span style="color:#e6db74">&#34;Extreme&#34;</span>)))
+</code></pre></div><pre><code>## Warning: Factor `playingtime` contains implicit NA, consider using
+## `forcats::fct_explicit_na`
+</code></pre><p><!-- raw HTML omitted --></p>
+
+
+
+      
+    </article>
+    
+    
+  </div>
+
+    <footer>
+  <div class="container">
+    <p class="credits copyright">
+      <a href="/about">hugo author</a>
+      &nbsp;&copy;
+      2020
+
+      
+        &nbsp;/&nbsp;
+        <a href="/">James Diu&#39;s Blog</a>
+      
+
+      &nbsp;&ndash;&nbsp;
+      <i class="fas fa-moon" id="dark-mode-toggle"></i>
+
+      <p class="credits theme-by">
+        Powered By <a href="https://gohugo.io">Hugo</a>&nbsp;Theme <a href="https://github.com/matsuyoshi30/harbor">Harbor</a>
+      </p>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

@@ -1,5 +1,5 @@
 ---
-title: 'Test Rmd'
+title: Test Rmd
 author: James Diu
 date: '2020-07-11'
 slug: test-rmd
@@ -15,4 +15,3 @@ toc: no
 
 ## Contents
 test Rmd
-What is the problem?

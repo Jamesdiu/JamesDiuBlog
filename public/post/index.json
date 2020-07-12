@@ -2,11 +2,71 @@
     
         
             {
+                "ref": "/post/how-to-select-a-satisfying-board-game-part-2/",
+                "title": "How to select a satisfying board game? Part 2",
+                "section": "post",
+                "date" : "2020.07.11",
+                "body": "Title Contents Testing Testing\n"
+            }
+        
+    ,
+        
+            {
+                "ref": "/post/test-rmarkdown/",
+                "title": "Test Rmarkdown",
+                "section": "post",
+                "date" : "2020.07.11",
+                "body": "Title Contents Test Rmarkdown\n"
+            }
+        
+    ,
+        
+            {
+                "ref": "/post/test-rmd/",
+                "title": "Test Rmd",
+                "section": "post",
+                "date" : "2020.07.11",
+                "body": " no  Title Contents test Rmd\n  "
+            }
+        
+    ,
+        
+            {
+                "ref": "/post/how-to-select-a-satisfying-board-game/",
+                "title": "How to select a satisfying board game? - Part I",
+                "section": "post",
+                "date" : "2020.07.10",
+                "body": "Being a boardgame enthusiasts, I always introduce board games to my friends. Some of them might be another enthusiasts, while some might have an idea that board game is equivalent to chess. Most of time I use my instinct and my understanding on the taste of my friends to decide which game would be provide the greatest fun for us. However, it can be very biased due to my personal preference. On the other hand, I love to collect different board games. I hope my collection can be diverse enough to serve all kind of my friends background and preference. So how should I choose a game to meet general preference? And which game should I select, such that it will enrich my collection and make sure it could be fun? (It is quite upset when you find out a new game is boring\u0026hellip;) Perhaps learning more about the general preference statistically is not a bad idea.\nData description Regarding the data of board games, BoardGameGeek(BGG) is undoubtely the biggest source. However, I am not going to pull the data directly. Instead, I will use the data from an interesting post about the trend and rating bias on BGG in 2018, which also come from BGG. Although it is not up-to-date data, I think it can still give us some insights and suggestions.\ngames_Jan2018 \u0026lt;- read_csv(\u0026#34;data/games_Jan2018.csv\u0026#34;) df \u0026lt;- games_Jan2018 In this dataset, we have total 95777 board games, including the base games(80105) and its expansion(15672). The information can also be separarted into 2 groups: games features and responses on BGG. Since some information is useless or duplicated, below are the useful columns: Features: type, yearpublished, minplayers, maxplayers, minplaytime, maxplaytime, minage, types, categories, mechanics, desginers Responses: users_rated, bayes_average_rating, total_owners, total_trader, total_wanters, total_wisher, total_comments, average_weight\nOne of the most important data is bayes_average_rating, which is only avaliable for the games with at least 30 users rating. It is used instead of the average player rating in order to exclude those games which few ratings, so that to prevent the bias from small smaple size. After filtering out those data without 30 users rating, we still have 15026 games and 4714 expansion and we will place our foucs on them.\ndf %\u0026gt;% filter(users_rated\u0026gt;=30) %\u0026gt;% group_by(type) %\u0026gt;% summarise(n=n()) ## # A tibble: 2 x 2 ## type n ## \u0026lt;dbl\u0026gt; \u0026lt;int\u0026gt; ## 1 0 15026 ## 2 1 4714 df \u0026lt;- df %\u0026gt;% filter(users_rated\u0026gt;=30) Now we have a rough idea about what cards are on our hand. Let\u0026rsquo;s find out so further information from them. At the beginning, we will start with the numerical data.\nCorrelation Below is the correlation table among different numerical features. We can see the BGG rating has a positive correlation with the average weight and minimum age, and also slightly positive correlated to the year of publish. Meanwhile, we can also notice that the rating is somehow independent on the number of players and the duration of playing time, but both features show some dependence on both features. Therefore we will go through all these features one by one. Weight It obvious to notice that the weight of games has positive skewness, with the mode at 2. Meanwhile, we should be reminded that this is a score provided by the users, which means this is a relative value to other games. Due to the same reason, perharps we should consider to use other fixed feature to replace this subjective features. Year of publish Since some of the games in our list do not have a clear publish date. Therefore we will start with the games published on or after 1985, which has already cover 90% of the games. For the rest of the data I will set them to NA as irrelevant due to small sample size.\nsort(df$yearpublished)[round(nrow(df)/10)] ## [1] 1985 From below plot, we can see that the average BGG rating raises slightly over the years. However it is hard to conclude whether the games puhlished are getting better or the baseline of users rating is going upwards. One interesting things to notice is the ratings of game are spreading futher to the higher rating, and so does the best rating. This would be the result of the increase of games published. Minimum age We can know that minimum age is positivly correlated to weight and rating. It is reasonable because most of the BGG users are not children and I have sure them are not that interested into those games for children. This fact also implies the evaluation to children\u0026rsquo;s games may be invalid. Besides, we can notice that the minimum age mainly fall into 5 ages: 8,10,12-14. WE can notice that the distrbution is very inbalance. In general the purpose of minimum age is an index for the complexity and content and the judgement is highly depends on the publisher (noted that games specially for 18+ is rare), therefore I would also prefer to transfer minimum age into 5 groups: \u0026lt;6, 6-8, 9-11, 12-14, 15+\ndf \u0026lt;- df %\u0026gt;% mutate(age_group = ifelse(minage\u0026gt;14, \u0026#34;15+\u0026#34;, ifelse(minage\u0026gt;11, \u0026#34;12-14\u0026#34;, ifelse(minage\u0026gt;8, \u0026#34;9-11\u0026#34;, ifelse(minage\u0026gt;5, \u0026#34;6-8\u0026#34;,\u0026#34;\u0026lt;6\u0026#34;)))), age_group = factor(age_group, levels = c(\u0026#34;\u0026lt;6\u0026#34;, \u0026#34;6-8\u0026#34;, \u0026#34;9-11\u0026#34;,\u0026#34;12-14\u0026#34;,\u0026#34;15+\u0026#34;))) According to the plot, it is easy to see that \u0026lt;6 \u0026amp; 15+ has lower rating then other. It reviews that the correlation between minimum age and rating may not be linear.\nNumber of players Most of the game can affort 2-4 players without any surprise.\n## Scale for 'colour' is already present. Adding another scale for 'colour', ## which will replace the existing scale. Playing time We notice that the playing time can be simplified into 4 groups: -1. short: 30 min or less -2. meidum: 30 - 60 min -3. long: 60 - 90 min -4. extreme: 120 min or longer In fact, from my experience the playing time can be varied a lot and normally longer than its stated. However, it still provides a segment of time length for the games. Similiar to minimum age, I would prefer to use above groups as categorical value for the playing time instead of numeric value.\n# Assign new group df \u0026lt;- df %\u0026gt;% mutate(playingtime = ifelse(maxplaytime \u0026gt;= 120, \u0026#34;Extreme\u0026#34;, ifelse(maxplaytime \u0026gt;=90, \u0026#34;Long\u0026#34;, ifelse(maxplaytime \u0026gt;=60, \u0026#34;Normal\u0026#34;, ifelse(is.na(maxplaytime),NA,\u0026#34;Short\u0026#34;)))), playingtime = factor(playingtime, levels =c(\u0026#34;Short\u0026#34;,\u0026#34;Normal\u0026#34;,\u0026#34;Long\u0026#34;,\u0026#34;Extreme\u0026#34;))) ## Warning: Factor `playingtime` contains implicit NA, consider using ## `forcats::fct_explicit_na` "
+            }
+        
+    ,
+        
+            {
+                "ref": "/post/course-wrap-up-introduction-to-data-science-in-python/",
+                "title": "Course Wrap Up: Introduction to Data Science in Python",
+                "section": "post",
+                "date" : "2020.06.18",
+                "body": "After finishing my first python course in Coursera, it\u0026rsquo;s time to do a little summary.\n"
+            }
+        
+    ,
+        
+            {
+                "ref": "/post/topics/",
+                "title": "Topics",
+                "section": "post",
+                "date" : "2020.06.14",
+                "body": "P-hacking / Dredging\n Remedies:    Bonfereoni correction: reduce p-value when the number of t-test increases\n  Hold-out sets: cross fold validation\n  Investigation pre-registration: peer evaluation by professionals\n  K-means\n  Regression\n  F test -\u0026gt; ANOVA\n  AIC (Akaike Infomration criterion)\n  Decision tree\n  Contents "
+            }
+        
+    ,
+        
+            {
                 "ref": "/post/case-study-the-ethics-of-using-hacked-data-patreon-s-data-hack-and-academic-data-standards/",
                 "title": "Case Study: The Ethics of Using Hacked Data: Patreon’s Data Hack and Academic Data Standards",
                 "section": "post",
                 "date" : "2020.06.10",
-                "body": "Recently I read an interesting article about whether we should use the hacked data. ( Here is the article The Ethics of Using Hacked Data. ) In short, the case is about a reserach team found the data they failed to obtain from the provider, along with some other private or personal data, was hacked and released to public. Then there was a dicussion between whether it is appropiate to use the hacked data. Ethical issue is the major concern. Although it might require more workload to obtain the data in another source, they decided not using the hacked data.\nEveryone who ever tried to collect data would understand the diffculties and pain. It would always be joyful to have these time consuming tasks done by someone else.\n"
+                "body": "During the course I have read an interesting article about whether we should use the hacked data. ( Here is the article The Ethics of Using Hacked Data. ) In short, the case is about a reserach team found the data they failed to obtain from the provider, along with some other private or personal data, was hacked and released to public. Then there was a dicussion between whether it is appropiate to use the hacked data. Ethical issue is the major concern. Although it might require more workload to obtain the data in another source, they decided not using the hacked data.\nIt is no doubt that the hacked data is very tempted, especially when you know the data is difficult to obtain. Everyone who ever tried to collect data would understand the difficulties and pain. It would be great to have these time-consuming tasks done by someone else. However, what is the trade-off? We know there is merely a free meal in the world. They always come along with some unexpected costs, which is not necessarily something from our wallet. For example, many people may already realize that joining those \u0026lsquo;free\u0026rsquo; lottery is giving out their personal information in exchange with a low chance opportunity. It is possible that we are paying much more than we expected for the free meal. So what will the cost be for using the hacked data? What possibly we are paying for them?\nEncouraging hacking would be the first in my mind. Using these data is somehow showing support to those hackers and agrees to what they have done. Perhaps some hackers have a sublime reason, but it should not be accepted as appropriate behaviour. It is only luck that the victim is not ourselves. Secondly, I think we will pay our trust to source from hackers. Since these data are not released officially, it is hard to guarantee its validity. So how can we prove something with untrustful data? It seems to contradict to the intention that using data to revelling the fact.\n"
             }
         
     ,
