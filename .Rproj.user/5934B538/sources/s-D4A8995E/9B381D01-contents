@@ -19,10 +19,10 @@ toc: no
 <!-- ## Contents -->
 
 
-Being a boardgame enthusiasts, I always introduce board games to my friends. Some of them might be another enthusiasts, while some might have an idea that board game is equivalent to chess. Most of time I use my instinct and my understanding on the taste of my friends to decide which game would be provide the greatest fun for us. However, it can be very biased due to my personal preference. On the other hand, I love to collect *different* board games. I hope my collection can be diverse enough to serve all kind of my friends background and preference. So how should I choose a game to meet general preference? And which game should I select, such that it will enrich my collection and make sure it could be fun? (It is quite upset when you find out a new game is boring...) Perhaps learning more about the general preference statistically is not a bad idea. 
+Being a board game enthusiast, I always introduce board games to my friends. Some of them might be another enthusiast, while some might have an idea that the board game is equivalent to chess. Most of the time I use my instinct and my understanding of the taste of my friends to decide which game would provide the greatest fun for us. However, it can be very biased due to my personal preference. On the other hand, I love to collect *different* board games. I hope my collection can be diverse enough to serve all kinds of my friends' backgrounds and preferences. So how should I choose a game to meet general preference? And which game should I select, such that it will enrich my collection and make sure it could be fun? (It is quite upset when you find out a new game is boring...) Perhaps learning more about the general preference statistically is not a bad idea.
 
 ## Data description
-Regarding the data of board games, [BoardGameGeek(BGG)](https://boardgamegeek.com/) is undoubtely the biggest source. However, I am not going to pull the data directly. Instead, I will use the data from an interesting [post](https://dvatvani.github.io/BGG-Analysis-Part-1.html) about the trend and rating bias on BGG in 2018, which also come from BGG. Although it is not up-to-date data, I think it can still give us some insights and suggestions.
+Regarding the data of board games, [BoardGameGeek(BGG)](https://boardgamegeek.com/) is undoubtedly the biggest source. However, I am not going to pull the data directly. Instead, I will use the data from an interesting [post](https://dvatvani.github.io/BGG-Analysis-Part-1.html) about the trend and rating bias on BGG in 2018, which also come from BGG. Although it is not up-to-date data, I think it can still give us some insights and suggestions.
 ```{r, include=FALSE}
 library(data.table)
 library(tidyverse)
@@ -63,22 +63,22 @@ df <- df %>% mutate(maxplaytime = ifelse(maxplaytime<minplaytime, minplaytime, m
                     minplaytime = ifelse(minplaytime<playingtime, minplaytime, playingtime))
 ```
 
-In this dataset, we have total 95,777 board games, including the base games(80,105) and its expansion(15,672). The information can also be separarted into 2 groups: games features and  responses on BGG. Since some information is useless or duplicated, below are the useful columns: 
+In this dataset, we have total 95,777 board games, including the base games(80,105) and its expansion(15,672). The information can also be separated into 2 groups: games features and responses on BGG. Since some information is useless or duplicated, below are the useful columns: 
 
 Features: `type`, `yearpublished`, `minplayers`, `maxplayers`, `minplaytime`, `maxplaytime`, `minage`, `types`, `categories`, `mechanics`, `desginers` 
 
 Responses: `users_rated`, `bayes_average_rating`, `total_owners`, `total_trader`, `total_wanters`, `total_wisher`, `total_comments`, `average_weight`
 
-One of the most important data is `bayes_average_rating`, which is only avaliable for the games with at least 30 users rating. It is used instead of the average player rating in order to exclude those games which few ratings, so that to prevent the bias from small smaple size. After filtering out those data without 30 users rating, we still have 15,026 games and 4,714 expansion and we will place our foucs on them.
+One of the most important data is `bayes_average_rating`, which is only available for the games with at least 30 users rating. It is used instead of the average player rating in order to exclude those games which few ratings, so that to prevent the bias from small sample size. After filtering out those data without 30 users rating, we still have 15,026 games and 4,714 expansion and we will place our focus on them.
 ```{r}
 df %>% filter(users_rated>=30) %>% group_by(type) %>% summarise(n=n())
 df <- df %>% filter(users_rated>=30)
 ```
 
-Now we have a rough idea about what cards are on our hand. Let's find out so further information from them. At the beginning, we will start with the numerical data.
+Now we have a rough idea about what cards are on our hand. Let's find out so further information from them. In the beginning, we will start with the numerical data.
 
 ### Correlation
-Below is the correlation table among different numerical features. We can see the BGG rating has a positive correlation with the average weight and minimum age, and also slightly positive correlated to the year of publish. Meanwhile, we can also notice that the rating is somehow independent on the number of players and the duration of playing time, but both features show some dependence on both features. Therefore we will go through all these features one by one.
+Below is the correlation table among different numerical features. We can see the BGG rating has a positive correlation with the average weight and minimum age, and also slightly positively correlated to the year of publish. Meanwhile, we can also notice that the rating is somehow independent of the number of players and the duration of playing time, but both features show some dependence on both features. Therefore we will go through all these features one by one.
 ```{r, echo=FALSE}
 corrplot(cor(
   df %>% select(BGG_rating = bayes_average_rating,
@@ -91,7 +91,7 @@ corrplot(cor(
 ```
 
 ### Weight
-It obvious to notice that the weight of games has positive skewness, with the mode at 2. Meanwhile, we should be reminded that this is a score provided by the users, which means this is a relative value to other games. Due to the same reason, perharps we should consider to use other fixed feature to replace this subjective features.
+It obvious to notice that the weight of games has positive skewness, with the mode at 2. Meanwhile, we should be reminded that this is a score provided by the users, which means this is a relative value to other games. Due to the same reason, perhaps we should consider using other fixed features to replace this subjective feature.
 ```{r, echo=FALSE}
 ggplot(df, aes(x=average_weight)) +
   geom_histogram(binwidth = 0.5) +
@@ -100,12 +100,12 @@ ggplot(df, aes(x=average_weight)) +
 ```
 
 ### Year of publish
-Since some of the games in our list do not have a clear publish date. Therefore we will start with the games published on or after 1985, which has already cover 90% of the games. For the rest of the data I will set them to NA as irrelevant due to small sample size.
+Since some of the games on our list do not have a clear publish date. Therefore we will start with the games published on or after 1985, which have already cover 90% of the games. For the rest of the data, I will set them to NA as irrelevant due to the small sample size.
 ```{r}
 sort(df$yearpublished)[round(nrow(df)/10)]
 ```
 
-From below plot, the average BGG rating raises slightly over the years. However it is hard to conclude whether the games puhlished are getting better or the baseline of users rating is going upwards. One interesting things to notice is the ratings of game are spreading futher to the higher rating, and so does the best rating. This would be the result of the increase of games published.
+From the below plot, the average BGG rating raises slightly over the years. However, it is hard to conclude whether the games published are getting better or the baseline of users rating is going upwards. One interesting thing to notice is the ratings of games are spreading further to the higher rating, and so does the best rating. This would be the result of the increase of games published.
 ```{r, echo=FALSE}
 avg_BGG_rate <- mean(df$bayes_average_rating)
 annual_rating <-
@@ -146,7 +146,7 @@ corrplot.mixed(cor(df %>% filter(yearpublished >=1985) %>%
 
 ### Minimum age
 
-We can know that minimum age is positivly correlated to weight and rating from the correlation chart before. It is reasonable because most of the BGG users are not children and I have sure them are not that interested into those games for children. This fact also implies the evaluation to children's games may be invalid. Besides, we can notice that the minimum age mainly fall into 5 ages: 8,10,12-14. WE can notice that the distrbution is very inbalance. In general the purpose of minimum age is an index for the complexity and content and the judgement is highly depends on the publisher (noted that games specially for 18+ is rare), therefore I would also prefer to transfer minimum age into 5 groups: <6, 6-8, 9-11, 12-14, 15+
+We can know that the minimum age is positively correlated to weight and rating from the correlation chart before. It is reasonable because most of the BGG users are not children and I have sure they are not that interested in those games for children. This fact also implies the evaluation of children's games may be invalid since the focus group is different. Besides, the minimum age mainly falls into 5 ages: 8,10,12-14 and the distribution is very inbalance. In general, the purpose of minimum age is an index for the complexity and content However, the judgment depends highly on the publisher (noted that games specially for 18+ are rare), therefore I would also prefer to transfer minimum age into 5 groups: <6, 6-8, 9-11, 12-14, 15+
 
 ```{r}
 df <- df %>% mutate(age_group = ifelse(minage>14, "15+",
@@ -171,7 +171,7 @@ ggplot(df)+
   ggtitle("Histogram of minimum age group")
 ```
 
-According to the plot, it is easy to see that <6 & 15+ has lower rating then other. It reviews that the correlation between minimum age and rating may not be linear.
+According to the plot, it is easy to see that <6 & 15+ has a lower rating than other. It reviews that the correlation between minimum age and rating may not be linear.
 
 ```{r, echo=FALSE}
 age_rating <-
@@ -195,7 +195,7 @@ age_rating +
 ```
 
 ### Number of players
-Most of the game can affort 2-4 players without any surprise.
+Most of the games can afford 2-4 players without any surprise.
 ```{r, echo=FALSE, warning=FALSE}
 ggplot(df %>% select(maxplayers, minplayers) %>%
   filter(!is.na(minplayers), !is.na(maxplayers)) %>%
@@ -217,11 +217,11 @@ ggplot(df %>% select(maxplayers, minplayers) %>%
 ### Playing time
 The playing time can be simplified into 4 groups:
 -1. short: 30 min or less
--2. meidum: 30 - 60 min
+-2. normal: 30 - 60 min
 -3. long: 60 - 90 min
 -4. extreme: 120 min or longer
 From my experience, the playing time can be varied a lot and normally longer than its stated. However, it still provides a segment of time length for the games.
-Similiar to minimum age, I would prefer to use above groups as categorical value for the playing time instead of numeric value.
+Similiarly to the minimum age, I would prefer to use the above groups as categorical value for the playing time instead of a numeric value.
 
 ```{r, echo=FALSE}
 ggplot(df %>% select(maxplaytime, minplaytime) %>%
