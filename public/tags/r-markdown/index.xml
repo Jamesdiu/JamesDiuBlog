@@ -68,7 +68,7 @@
   F test -&amp;gt; ANOVA
   AIC (Akaike Infomration criterion)
   Decision tree
-  Contents </description>
+  Tips: Commit all in bash:| git add -A &amp;amp;&amp;amp; git commit -m &amp;ldquo;test&amp;rdquo;</description>
 		</item>
       	
 		<item>

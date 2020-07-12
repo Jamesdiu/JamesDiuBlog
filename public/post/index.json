@@ -56,7 +56,7 @@
                 "title": "Topics",
                 "section": "post",
                 "date" : "2020.06.14",
-                "body": "P-hacking / Dredging\n Remedies:    Bonfereoni correction: reduce p-value when the number of t-test increases\n  Hold-out sets: cross fold validation\n  Investigation pre-registration: peer evaluation by professionals\n  K-means\n  Regression\n  F test -\u0026gt; ANOVA\n  AIC (Akaike Infomration criterion)\n  Decision tree\n  Contents "
+                "body": "P-hacking / Dredging\n Remedies:    Bonfereoni correction: reduce p-value when the number of t-test increases\n  Hold-out sets: cross fold validation\n  Investigation pre-registration: peer evaluation by professionals\n  K-means\n  Regression\n  F test -\u0026gt; ANOVA\n  AIC (Akaike Infomration criterion)\n  Decision tree\n  Tips: Commit all in bash:| git add -A \u0026amp;\u0026amp; git commit -m \u0026ldquo;test\u0026rdquo;\nContents "
             }
         
     ,

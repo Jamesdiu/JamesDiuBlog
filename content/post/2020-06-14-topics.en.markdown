@@ -24,6 +24,12 @@ P-hacking / Dredging
 6. Decision tree
 
 
+
+
+Tips:
+Commit all in bash:|   git add -A && git commit -m "test"
+
+
 <!-- toc -->
 
 ## Contents
