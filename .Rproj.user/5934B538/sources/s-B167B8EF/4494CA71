@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1594652311524.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1808308072",
+    "id" : "4494CA71",
+    "lastKnownWriteTime" : 1594652318,
+    "last_content_update" : 1594652318092,
+    "path" : "~/Rdata/JamesDiuBlog/content/post/2020-07-13-test-netlify.en.Rmarkdown",
+    "project_path" : "content/post/2020-07-13-test-netlify.en.Rmarkdown",
+    "properties" : {
+        "cursorPosition" : "18,5",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

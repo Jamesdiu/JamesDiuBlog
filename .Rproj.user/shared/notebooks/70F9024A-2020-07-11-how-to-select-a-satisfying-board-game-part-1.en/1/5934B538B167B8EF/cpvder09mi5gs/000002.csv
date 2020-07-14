@@ -1,0 +1,7 @@
+"0","corrplot.mixed(cor(df %>% filter(yearpublished >=1985) %>%"
+"0","               group_by(yearpublished) %>% summarise(Nr_of_pub = n(),"
+"0","                                                     avg_rating = mean(bayes_average_rating),"
+"0","                                                     sd_rating = sd(bayes_average_rating)),"
+"0","         use = ""pairwise.complete.obs"" # igrone missing pairs of data"
+"0","  ),"
+"0","  lower.col = ""black"", number.cex = .7)"
